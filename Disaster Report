@@ -1,0 +1,20 @@
+@model DisasterAlleviationFoundation.Models.DisasterReport
+@{
+    ViewData["Title"] = "Submit Report";
+}
+
+<h2>Submit Disaster Report</h2>
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="mb-3"><label>Title</label><input asp-for="Title" class="form-control" /></div>
+    <div class="mb-3"><label>Type</label><input asp-for="DisasterType" class="form-control" /></div>
+    <div class="mb-3"><label>Location</label><input asp-for="Location" class="form-control" /></div>
+    <div class="mb-3"><label>Description</label><textarea asp-for="Description" class="form-control"></textarea></div>
+    <div class="mb-3"><label>Image (optional)</label><input type="file" name="ImageFile" class="form-control" /></div>
+    <button class="btn btn-primary">Submit</button>
+</form>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success mt-3">@TempData["Success"]</div>
+}
